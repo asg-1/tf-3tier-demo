@@ -1,3 +1,6 @@
+
+# TF for a 3 tier app with only 1 webserver
+
 terraform {
   required_providers {
     aws = {
@@ -16,6 +19,7 @@ provider "aws" {
   alias  = "paris"
   region = "eu-west-3"
 }
+
 */
 
 # Create a VPC
