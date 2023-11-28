@@ -1,6 +1,6 @@
 ** Simple three tier app in terraform 
 ** by malbgar@ 
-** any questions let me know 
+** any questions let me know  :-)
 
 The application has resiliency errors which need to be picked by ResilienceHub and provide recommendations
 
@@ -10,3 +10,8 @@ other improvements to be made and not included in main.tf:
     - auto scaling group 
     - change target group for ALB to the ASG
     - change snapshots from RDS, remove, or backup retention to 0 from 7
+
+
+jMeter script included to test app endpoint (load balancer) Run with CLI
+jmeter -n -t demoWeb.jmx -l Test-demo-log.jtl
+

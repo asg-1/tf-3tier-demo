@@ -14,13 +14,14 @@ terraform {
 provider "aws" {
   region = "eu-west-2"
 }
-/* only for the bucket on differnt region policy
+// only for the bucket on differnt region policy
+/*
 provider "aws" {
   alias  = "paris"
   region = "eu-west-3"
 }
-
 */
+
 
 # Create a VPC
 resource "aws_vpc" "my-vpc" {
@@ -150,7 +151,7 @@ resource "aws_instance" "webserver1" {
 
 }
 ##############################
-/*
+
 # uncomment to include new second web server in differnt AZ 
 # this will improve resiliency score
 
@@ -181,7 +182,7 @@ resource "aws_lb_target_group_attachment" "external-elb2" {
   ]
 }
 
-*/
+
 
 ##############################
 
@@ -348,12 +349,13 @@ output "lb_dns_name" {
   value       = aws_lb.external-elb.dns_name
 }
 
-/*
-bucket test in different region
 
+// bucket test in different region
+/*
 resource "aws_s3_bucket" "s3_bucket1" {
    bucket = "my-bucket-files-in-eu-west-2-london"
 }
+ if you include another resource in other region, ARH policy is multiregion
 resource "aws_s3_bucket" "s3_bucket2" {
    provider = aws.paris
    bucket = "my-bucket-files-in-eu-west-3-paris"
